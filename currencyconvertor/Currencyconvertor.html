@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>محول العملات المباشر</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+        }
+        .converter {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        select, input {
+            padding: 8px;
+            margin: 5px;
+            width: 200px;
+        }
+        button {
+            padding: 8px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="converter">
+        <h2>محول العملات المباشر</h2>
+        <input type="number" id="amount" placeholder="أدخل المبلغ">
+        <select id="from">
+            <option value="USD">دولار أمريكي (USD)</option>
+            <option value="EUR">يورو (EUR)</option>
+            <option value="GBP">جنيه إسترليني (GBP)</option>
+            <option value="JPY">ين ياباني (JPY)</option>
+            <option value="AUD">دولار أسترالي (AUD)</option>
+            <option value="CAD">دولار كندي (CAD)</option>
+            <option value="CHF">فرنك سويسري (CHF)</option>
+            <option value="CNY">يوان صيني (CNY)</option>
+            <option value="SAR">ريال سعودي (SAR)</option>
+            <option value="AED">درهم إماراتي (AED)</option>
+            <option value="QAR">ريال قطري (QAR)</option>
+            <option value="KWD">دينار كويتي (KWD)</option>
+            <option value="BHD">دينار بحريني (BHD)</option>
+            <option value="OMR">ريال عماني (OMR)</option>
+            <option value="EGP">جنيه مصري (EGP)</option>
+            <option value="JOD">دينار أردني (JOD)</option>
+            <option value="LBP">ليرة لبنانية (LBP)</option>
+            <option value="TRY">ليرة تركية (TRY)</option>
+            <option value="INR">روبية هندية (INR)</option>
+            <option value="PKR">روبية باكستانية (PKR)</option>
+            <option value="BRL">ريال برازيلي (BRL)</option>
+            <option value="RUB">روبل روسي (RUB)</option>
+            <option value="KRW">وون كوري جنوبي (KRW)</option>
+            <option value="SGD">دولار سنغافوري (SGD)</option>
+            <option value="NZD">دولار نيوزيلندي (NZD)</option>
+            <option value="HKD">دولار هونج كونج (HKD)</option>
+            <option value="SEK">كرونة سويدية (SEK)</option>
+            <option value="NOK">كرونة نرويجية (NOK)</option>
+            <option value="DKK">كرونة دنماركية (DKK)</option>
+            <option value="ZAR">راند جنوب أفريقي (ZAR)</option>
+            <option value="MXN">بيزو مكسيكي (MXN)</option>
+            <option value="ILS">شيكل إسرائيلي (ILS)</option>
+            <option value="IDR">روبية إندونيسية (IDR)</option>
+            <option value="MYR">رينغيت ماليزي (MYR)</option>
+            <option value="THB">بات تايلندي (THB)</option>
+            <option value="VND">دونج فيتنامي (VND)</option>
+        </select>
+        <select id="to">
+            <option value="EUR">يورو (EUR)</option>
+            <option value="USD">دولار أمريكي (USD)</option>
+            <option value="GBP">جنيه إسترليني (GBP)</option>
+            <option value="JPY">ين ياباني (JPY)</option>
+            <option value="AUD">دولار أسترالي (AUD)</option>
+            <option value="CAD">دولار كندي (CAD)</option>
+            <option value="CHF">فرنك سويسري (CHF)</option>
+            <option value="CNY">يوان صيني (CNY)</option>
+            <option value="SAR">ريال سعودي (SAR)</option>
+            <option value="AED">درهم إماراتي (AED)</option>
+            <option value="QAR">ريال قطري (QAR)</option>
+            <option value="KWD">دينار كويتي (KWD)</option>
+            <option value="BHD">دينار بحريني (BHD)</option>
+            <option value="OMR">ريال عماني (OMR)</option>
+            <option value="EGP">جنيه مصري (EGP)</option>
+            <option value="JOD">دينار أردني (JOD)</option>
+            <option value="LBP">ليرة لبنانية (LBP)</option>
+            <option value="TRY">ليرة تركية (TRY)</option>
+            <option value="INR">روبية هندية (INR)</option>
+            <option value="PKR">روبية باكستانية (PKR)</option>
+            <option value="BRL">ريال برازيلي (BRL)</option>
+            <option value="RUB">روبل روسي (RUB)</option>
+            <option value="KRW">وون كوري جنوبي (KRW)</option>
+            <option value="SGD">دولار سنغافوري (SGD)</option>
+            <option value="NZD">دولار نيوزيلندي (NZD)</option>
+            <option value="HKD">دولار هونج كونج (HKD)</option>
+            <option value="SEK">كرونة سويدية (SEK)</option>
+            <option value="NOK">كرونة نرويجية (NOK)</option>
+            <option value="DKK">كرونة دنماركية (DKK)</option>
+            <option value="ZAR">راند جنوب أفريقي (ZAR)</option>
+            <option value="MXN">بيزو مكسيكي (MXN)</option>
+            <option value="ILS">شيكل إسرائيلي (ILS)</option>
+            <option value="IDR">روبية إندونيسية (IDR)</option>
+            <option value="MYR">رينغيت ماليزي (MYR)</option>
+            <option value="THB">بات تايلندي (THB)</option>
+            <option value="VND">دونج فيتنامي (VND)</option>
+        </select>
+        <button onclick="convertCurrency()">تحويل</button>
+        <h3 id="result"></h3>
+    </div>
+
+    <script>
+        async function convertCurrency() {
+            const amount = document.getElementById('amount').value;
+            const from = document.getElementById('from').value;
+            const to = document.getElementById('to').value;
+            
+            try {
+                const response = await fetch(`https://api.exchangerate-api.com/v4/latest/${from}`);
+                const data = await response.json();
+                const rate = data.rates[to];
+                const result = (amount * rate).toFixed(2);
+                
+                document.getElementById('result').innerHTML = 
+                    `${amount} ${from} = ${result} ${to}`;
+            } catch (error) {
+                document.getElementById('result').innerHTML = 
+                    'حدث خطأ في التحويل. الرجاء المحاولة مرة أخرى.';
+            }
+        }
+    </script>
+</body>
+</html>
